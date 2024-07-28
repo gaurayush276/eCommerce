@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import Home from './pages/Home';
  import LoginPage from './pages/LoginPage';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import Cart from './features/cart/Cart';
  
 
 function App() {
@@ -16,6 +17,11 @@ function App() {
     {
       path :'/' ,
       element : <Home/>
+    }
+    ,
+    {
+      path :'/cart' ,
+      element : <Cart/>
     }
 
   ])
