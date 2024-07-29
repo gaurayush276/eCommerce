@@ -5,6 +5,8 @@ import Home from './pages/Home';
  import LoginPage from './pages/LoginPage';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Cart from './features/cart/Cart';
+import CheckoutPage from './pages/CheckoutPage';
+import ProductDetails from './features/productList.js/component/Productdetails';
  
 
 function App() {
@@ -22,6 +24,16 @@ function App() {
     {
       path :'/cart' ,
       element : <Cart/>
+    }
+    ,
+    {
+      path :'/check' ,
+      element : <CheckoutPage/>
+    }
+    ,
+    {
+      path :'/product-datail' ,
+      element : <ProductDetails/>
     }
 
   ])

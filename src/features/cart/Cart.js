@@ -5,6 +5,7 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle, Select } from '@headl
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { initializeUseSelector } from 'react-redux/es/hooks/useSelector'
 import { Link } from 'react-router-dom'
+import { current } from '@reduxjs/toolkit'
 
 const products = [
   {
@@ -35,8 +36,7 @@ const products = [
 
 const Cart = () => {
     const [open, setOpen] = useState(true)
-    const get = useRef()  ;
-    
+     
     
     
     return (
@@ -67,9 +67,9 @@ const Cart = () => {
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <p className="text-gray-500">Qty 
                                       <div className=' flex-col items-center' > 
-                                         <select  ref={get} > 
+                                         <select > 
                                       
-                                          <option value="1" > 1  </option>
+                                          <option  value="1" > 1  </option>
                                           <option value="2"> 2  </option>
                                           
                                          </select>
