@@ -32,7 +32,7 @@ function App() {
     }
     ,
     {
-      path :'/product-datail' ,
+      path :'/product-detail' ,
       element : <ProductDetails/>
     }
 
