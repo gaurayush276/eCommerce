@@ -13304,7 +13304,7 @@ const filters = [
 
   
   const brands = [...new Set ( products.map( p => p.brand ))] ; 
-  const obj2 = brands.map( c => ( { value : c , label : c  , checked : false }))
+  const obj2 = brands.map( c => ( { value : c , label : c   , checked : false }))
   console.log( obj2) ; 
 
 

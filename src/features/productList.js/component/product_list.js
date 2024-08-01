@@ -2,8 +2,8 @@ import React, { useState, Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchAllProductsAsync,
- fetchAllProductsByFilterAsync , 
-  selectAllProducts,
+  fetchAllProductsByFilterAsync,
+  selectAllProducts
 } from '../ProductListSlice';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
@@ -58,75 +58,137 @@ const filters = [
     id: 'brand',
     name: 'Brands',
     options: [
- 
-      {value: 'Fashion Shades', label: 'Fashion Shades', checked: false} ,
-      {value: 'Fashion Fun', label: 'Fashion Fun', checked: false} ,
-      {value: 'Apple', label: 'Apple', checked: false} ,
-      {value: 'Samsung', label: 'Samsung', checked: false} ,
-      {value: 'Chrysler', label: 'Chrysler', checked: false} ,
-      {value: 'Dodge', label: 'Dodge', checked: false} ,
-      {value: 'Essence', label: 'Essence', checked: false} ,
-      {value: 'Glamour Beauty', label: 'Glamour Beauty', checked: false} ,
-      {value: 'Velvet Touch', label: 'Velvet Touch', checked: false} ,
-          {value: 'Chic Cosmetics', label: 'Chic Cosmetics', checked: false} ,
-          {value: 'Nail Couture', label: 'Nail Couture', checked: false} ,
-          {value: 'Calvin Klein', label: 'Calvin Klein', checked: false} ,
-          {value: 'Chanel', label: 'Chanel', checked: false} ,
-          {value: 'Dior', label: 'Dior', checked: false} ,
-          {value: 'Dolce & Gabbana', label: 'Dolce & Gabbana', checked: false} ,
-          {value: 'Gucci', label: 'Gucci', checked: false} ,
-          {value: 'Annibale Colombo', label: 'Annibale Colombo', checked: false} ,
-          {value: 'Furniture Co.', label: 'Furniture Co.', checked: false} ,
-          {value: 'Knoll', label: 'Knoll', checked: false} ,
-          {value: 'Bath Trends', label: 'Bath Trends', checked: false} ,
-          {value: 'Asus', label: 'Asus', checked: false} ,
-          {value: 'Huawei', label: 'Huawei', checked: false} ,
-          {value: 'Lenovo', label: 'Lenovo', checked: false} ,
-          {value: 'Dell', label: 'Dell', checked: false} ,
-          {value: 'Fashion Trends', label: 'Fashion Trends', checked: false} ,
-          {value: 'Gigabyte', label: 'Gigabyte', checked: false} ,
-          {value: 'Classic Wear', label: 'Classic Wear', checked: false} ,
-          {value: 'Casual Comfort', label: 'Casual Comfort', checked: false} ,
-          {value: 'Urban Chic', label: 'Urban Chic', checked: false} ,
-          {value: 'Nike', label: 'Nike', checked: false} ,
-          {value: 'Puma', label: 'Puma', checked: false} ,
-          {value: 'Off White', label: 'Off White', checked: false} ,
-          {value: 'Fashion Timepieces', label: 'Fashion Timepieces', checked: false} ,
-          {value: 'Longines', label: 'Longines', checked: false} ,
-          {value: 'Rolex', label: 'Rolex', checked: false} ,
-          {value: 'Amazon', label: 'Amazon', checked: false} ,
-          {value: 'Beats', label: 'Beats', checked: false} ,
-          {value: 'TechGear', label: 'TechGear', checked: false} ,
-          {value: 'GadgetMaster', label: 'GadgetMaster', checked: false} ,
-          {value: 'SnapTech', label: 'SnapTech', checked: false} ,
-          {value: 'ProVision', label: 'ProVision', checked: false} ,
-          {value: 'Generic Motors', label: 'Generic Motors', checked: false} ,
-          {value: 'Kawasaki', label: 'Kawasaki', checked: false} ,
-          {value: 'MotoGP', label: 'MotoGP', checked: false} ,
-          {value: 'ScootMaster', label: 'ScootMaster', checked: false} ,
-          {value: 'SpeedMaster', label: 'SpeedMaster', checked: false} ,
-          {value: 'Attitude', label: 'Attitude', checked: false} ,
-          {value: 'Olay', label: 'Olay', checked: false} ,
-          {value: 'Vaseline', label: 'Vaseline', checked: false} ,
-          {value: 'Oppo', label: 'Oppo', checked: false} ,
-          {value: 'Realme', label: 'Realme', checked: false} ,
-          {value: 'Vivo', label: 'Vivo', checked: false} ,
-          {value: 'Fashionista', label: 'Fashionista', checked: false} ,
-          {value: 'Heshe', label: 'Heshe', checked: false} ,
-          {value: 'Prada', label: 'Prada', checked: false} ,
-          {value: 'Elegance Collection', label: 'Elegance Collection', checked: false} ,
-          {value: 'Comfort Trends', label: 'Comfort Trends', checked: false} ,
-          {value: 'Fashion Diva', label: 'Fashion Diva', checked: false} ,
-          {value: 'Pampi', label: 'Pampi', checked: false} ,
-          {value: 'Fashion Express', label: 'Fashion Express', checked: false} ,
-          {value: 'IWC', label: 'IWC', checked: false} ,
-          {value: 'Fashion Gold', label: 'Fashion Gold', checked: false} ,
-          {value: 'Fashion Co.', label: 'Fashion Co.', checked: false} ,
-      
-      
-      
-      ]
-      ,
+      { value: 'Apple', label: 'Apple', checked: false },
+      { value: 'Samsung', label: 'Samsung', checked: false },
+      { value: 'OPPO', label: 'OPPO', checked: false },
+      { value: 'Huawei', label: 'Huawei', checked: false },
+      {
+        value: 'Microsoft Surface',
+        label: 'Microsoft Surface',
+        checked: false,
+      },
+      { value: 'Infinix', label: 'Infinix', checked: false },
+      { value: 'HP Pavilion', label: 'HP Pavilion', checked: false },
+      {
+        value: 'Impression of Acqua Di Gio',
+        label: 'Impression of Acqua Di Gio',
+        checked: false,
+      },
+      { value: 'Royal_Mirage', label: 'Royal_Mirage', checked: false },
+      {
+        value: 'Fog Scent Xpressio',
+        label: 'Fog Scent Xpressio',
+        checked: false,
+      },
+      { value: 'Al Munakh', label: 'Al Munakh', checked: false },
+      { value: 'Lord - Al-Rehab', label: 'Lord   Al Rehab', checked: false },
+      { value: "L'Oreal Paris", label: "L'Oreal Paris", checked: false },
+      { value: 'Hemani Tea', label: 'Hemani Tea', checked: false },
+      { value: 'Dermive', label: 'Dermive', checked: false },
+      { value: 'ROREC White Rice', label: 'ROREC White Rice', checked: false },
+      { value: 'Fair & Clear', label: 'Fair & Clear', checked: false },
+      { value: 'Saaf & Khaas', label: 'Saaf & Khaas', checked: false },
+      { value: 'Bake Parlor Big', label: 'Bake Parlor Big', checked: false },
+      {
+        value: 'Baking Food Items',
+        label: 'Baking Food Items',
+        checked: false,
+      },
+      { value: 'fauji', label: 'fauji', checked: false },
+      { value: 'Dry Rose', label: 'Dry Rose', checked: false },
+      { value: 'Boho Decor', label: 'Boho Decor', checked: false },
+      { value: 'Flying Wooden', label: 'Flying Wooden', checked: false },
+      { value: 'LED Lights', label: 'LED Lights', checked: false },
+      { value: 'luxury palace', label: 'luxury palace', checked: false },
+      { value: 'Golden', label: 'Golden', checked: false },
+      {
+        value: 'Furniture Bed Set',
+        label: 'Furniture Bed Set',
+        checked: false,
+      },
+      { value: 'Ratttan Outdoor', label: 'Ratttan Outdoor', checked: false },
+      { value: 'Kitchen Shelf', label: 'Kitchen Shelf', checked: false },
+      { value: 'Multi Purpose', label: 'Multi Purpose', checked: false },
+      { value: 'AmnaMart', label: 'AmnaMart', checked: false },
+      {
+        value: 'Professional Wear',
+        label: 'Professional Wear',
+        checked: false,
+      },
+      { value: 'Soft Cotton', label: 'Soft Cotton', checked: false },
+      { value: 'Top Sweater', label: 'Top Sweater', checked: false },
+      {
+        value: 'RED MICKY MOUSE..',
+        label: 'RED MICKY MOUSE..',
+        checked: false,
+      },
+      { value: 'Digital Printed', label: 'Digital Printed', checked: false },
+      { value: 'Ghazi Fabric', label: 'Ghazi Fabric', checked: false },
+      { value: 'IELGY', label: 'IELGY', checked: false },
+      { value: 'IELGY fashion', label: 'IELGY fashion', checked: false },
+      {
+        value: 'Synthetic Leather',
+        label: 'Synthetic Leather',
+        checked: false,
+      },
+      {
+        value: 'Sandals Flip Flops',
+        label: 'Sandals Flip Flops',
+        checked: false,
+      },
+      { value: 'Maasai Sandals', label: 'Maasai Sandals', checked: false },
+      { value: 'Arrivals Genuine', label: 'Arrivals Genuine', checked: false },
+      { value: 'Vintage Apparel', label: 'Vintage Apparel', checked: false },
+      { value: 'FREE FIRE', label: 'FREE FIRE', checked: false },
+      { value: 'The Warehouse', label: 'The Warehouse', checked: false },
+      { value: 'Sneakers', label: 'Sneakers', checked: false },
+      { value: 'Rubber', label: 'Rubber', checked: false },
+      { value: 'Naviforce', label: 'Naviforce', checked: false },
+      { value: 'SKMEI 9117', label: 'SKMEI 9117', checked: false },
+      { value: 'Strap Skeleton', label: 'Strap Skeleton', checked: false },
+      { value: 'Stainless', label: 'Stainless', checked: false },
+      { value: 'Eastern Watches', label: 'Eastern Watches', checked: false },
+      { value: 'Luxury Digital', label: 'Luxury Digital', checked: false },
+      { value: 'Watch Pearls', label: 'Watch Pearls', checked: false },
+      { value: 'Bracelet', label: 'Bracelet', checked: false },
+      { value: 'LouisWill', label: 'LouisWill', checked: false },
+      { value: 'Copenhagen Luxe', label: 'Copenhagen Luxe', checked: false },
+      { value: 'Steal Frame', label: 'Steal Frame', checked: false },
+      { value: 'Darojay', label: 'Darojay', checked: false },
+      {
+        value: 'Fashion Jewellery',
+        label: 'Fashion Jewellery',
+        checked: false,
+      },
+      { value: 'Cuff Butterfly', label: 'Cuff Butterfly', checked: false },
+      {
+        value: 'Designer Sun Glasses',
+        label: 'Designer Sun Glasses',
+        checked: false,
+      },
+      { value: 'mastar watch', label: 'mastar watch', checked: false },
+      { value: 'Car Aux', label: 'Car Aux', checked: false },
+      { value: 'W1209 DC12V', label: 'W1209 DC12V', checked: false },
+      { value: 'TC Reusable', label: 'TC Reusable', checked: false },
+      { value: 'Neon LED Light', label: 'Neon LED Light', checked: false },
+      {
+        value: 'METRO 70cc Motorcycle - MR70',
+        label: 'METRO 70cc Motorcycle   MR70',
+        checked: false,
+      },
+      { value: 'BRAVE BULL', label: 'BRAVE BULL', checked: false },
+      { value: 'shock absorber', label: 'shock absorber', checked: false },
+      { value: 'JIEPOLLY', label: 'JIEPOLLY', checked: false },
+      { value: 'Xiangle', label: 'Xiangle', checked: false },
+      {
+        value: 'lightingbrilliance',
+        label: 'lightingbrilliance',
+        checked: false,
+      },
+      { value: 'Ifei Home', label: 'Ifei Home', checked: false },
+      { value: 'DADAWU', label: 'DADAWU', checked: false },
+      { value: 'YIOSI', label: 'YIOSI', checked: false },
+    ],
   },
 ];
 
@@ -141,20 +203,24 @@ export default function ProductList() {
   const [filter, setFilter] = useState({});
 
   const handleFilter = (e, section, option) => {
-    const newFilter = { ...filter ,  [section.id]: option.value };
+    const newFilter = { ...filter, [section.id]: option.value };
     setFilter(newFilter);
-    dispatch( fetchAllProductsByFilterAsync(newFilter));
-    // console.log(section.id, option.value);
+     console.log(section.id, option.value);
   };
- 
-  useEffect(() => {
-    console.log("Products updated:", products);
-  }, [products]);
 
+  const handleSort = (e, option) => {
+    const newFilter = { ...filter, _sort: option.sort, _order:option.order };
+    setFilter(newFilter);
+   };
 
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
-  }, [dispatch]);
+  }, [dispatch   ]);
+
+  useEffect(() => {
+   dispatch(fetchAllProductsByFilterAsync(filter));
+
+  }, [filter ]);
 
   return (
     <div className="bg-white">
@@ -302,8 +368,7 @@ export default function ProductList() {
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <p
-                             
-                            
+                              onClick={e=>handleSort(e,option)}
                               className={classNames(
                                 option.current
                                   ? 'font-medium text-gray-900'
