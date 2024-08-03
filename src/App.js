@@ -7,6 +7,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Cart from './features/cart/Cart';
 import CheckoutPage from './pages/CheckoutPage';
 import ProductDetails from './features/productList.js/component/Productdetails';
+import Protected from './features/auth/components/Protected';
  
 
 function App() {
@@ -18,22 +19,30 @@ function App() {
     },
     {
       path :'/' ,
-      element : <Home/>
+      element : <Protected> 
+        <Home/>
+      </Protected> 
     }
     ,
     {
       path :'/cart' ,
-      element : <Cart/>
+      element :<Protected>
+        <Cart/>
+         </Protected> 
     }
     ,
     {
       path :'/check' ,
-      element : <CheckoutPage/>
+      element :<Protected> 
+        <CheckoutPage/>
+
+      </Protected> 
     }
     ,
     {
-      path :'/product-detail' ,
-      element : <ProductDetails/>
+      path :'/product-detail/:id' ,
+      element :<Protected> 
+        <ProductDetails/> </Protected> 
     }
 
   ])

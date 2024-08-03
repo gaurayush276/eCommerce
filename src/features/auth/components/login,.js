@@ -1,18 +1,49 @@
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import {useForm}from 'react-hook-form'
+import {useDispatch, useSelector} from 'react-redux' ;
+import { createUserAsync, selectLoggedInUser } from '../authSlice';
 const Login = () => {
+  const dispatch = useDispatch() ; 
+  const { register, handleSubmit , wathc , formState : {errors}} = useForm();
   const [toggle , setToggle ] = useState( false ) ; 
-     
-    return (
-        <>
-          {/*
-            This example requires updating your template:
+  const [password, setPassword]  = useState( ) ; 
+  const [email, setEmail]  = useState( '') ; 
+  const [confirmPassword , setConfirmPassword  ] = useState( true ) ; 
+  // const user = useSelector(selectLoggedInUser) ; 
+  const checkValidData = (email,password , value )=>{
+
+    // rejex expression 
+    const emailCheck =  /[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}/.test(email) ;
+    const passwordCheck =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password) ; 
     
-            ```
-            <html class="h-full bg-white">
-            <body class="h-full">
-            ```
-          */}
+
+    if ( !emailCheck){
+ console.log( "Email is not valid")
+      setEmail( "Email is not valid")
+    }
+    else {
+      setEmail( "")
+    }
+
+    if ( !passwordCheck) {
+      console.log( "Password is not valid, please use uppercase ,special char and nums")
+  setPassword('Password is not valid, please use uppercase ,special char and nums')
+    }
+   
+
+else {
+  setPassword('') ; 
+}
+if ( value === password )
+  setConfirmPassword( true ) ; 
+else 
+setConfirmPassword( false ) ; 
+  }
+
+  
+   
+    return (
+        <> 
           <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <img
@@ -26,13 +57,19 @@ const Login = () => {
             </div>
     
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form action="#" method="POST" className="space-y-6">
+              <form  onClick={  handleSubmit((data) => {
+                dispatch(createUserAsync({email:data.email , password : data.password}))
+                checkValidData( data.email , data.password , data.confirmPassword ) ; 
+              } )} method="POST" className="space-y-6">
                   <div>
                 {
                     toggle && (
                         <div className='mb-3 '> 
                         <label className="block text-sm font-medium leading-6 text-gray-900"> Name </label>
-                        <input type='text'  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        <input type='text'
+                        id = "name" 
+                        { ...register('name', {required: true})}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         /> 
                         </div>
                     )
@@ -45,7 +82,7 @@ const Login = () => {
                   <div className="mt-2">
                     <input
                       id="email"
-                      name="email"
+                      { ...register('email', {required: true } )}
                       type="email"
                       required
                       autoComplete="email"
@@ -53,6 +90,7 @@ const Login = () => {
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
+                  <p className=' text-red-600 font-semibold'> {email}</p>
                 </div>
     
                 <div>
@@ -60,24 +98,52 @@ const Login = () => {
                     <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                       Password
                     </label>
-                    <div className="text-sm">
+                   { !toggle && ( <div className="text-sm">
                       <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
                         Forgot password?
                       </a>
-                    </div>
+                    </div> ) }
                   </div>
                   <div className="mt-2">
                     <input
                       id="password"
-                      name="password"
+                      
+                      {...register('password', {required: true})  }
                       type="password"
                       required
                       autoComplete="current-password"
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
+                  <p className=' text-red-600 font-semibold'>  { password } </p>
                 </div>
-    
+                {
+                    toggle && (
+                 
+                      <div>
+                       
+                        <div className="flex items-center justify-between">
+                          <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                           Confirm Password
+                          </label>
+                           
+                        </div>
+                        <div className="mt-2">
+                          <input
+                            id="confirmPassword"
+                            {...register('confirmPassword', {required: true})  }
+                            type="password"
+                            required
+                            autoComplete="current-password"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          />
+                        </div>
+      
+                        <p className=' text-red-600 font-semibold'>  { confirmPassword === false ? "Password did not match" : '' } </p>
+                      </div>
+          
+                    )
+                  }
                 <div>
                   <button
                     type="submit"
@@ -91,7 +157,7 @@ const Login = () => {
               <p className="mt-10 text-center text-sm text-gray-500">
                 Not a member?{' '}
                 <span  onClick={()=> setToggle(!toggle)} className= "cursor-pointer font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                  Create an account
+                  {!toggle ? "Create an account"  : "Login Here"}
                 </span>
               </p>
             </div>
