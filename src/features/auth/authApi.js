@@ -12,5 +12,29 @@ export function createUser (userData) {
     })
 }
 
+export function checkUser (loginInfo) {
+
+    return new Promise ( async (resolve , reject ) =>{
+        
+        const email = loginInfo.email ; 
+        const password = loginInfo.password ; 
+        const response = await fetch ( 'http://localhost:8000/users?email=' + email ) ; 
+        const data = await response.json() ;
+        // console.log( data[0].password) ; 
+        if ( data.length ){
+            if ( data[0].password === password ){
+                resolve({data : data[0]})
+            console.log({data}) ; 
+            }
+           else {
+                reject( {messege : "wrong credential" }  )
+           }
+        }
+        else {
+            reject( { messege : 'user not found '}) ;
+        }
+         
+    })
+}
 
  

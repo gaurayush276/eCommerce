@@ -3,13 +3,12 @@ import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router'
 import { selectLoggedInUser } from '../authSlice'
 
-const Protected = ({chilren}) => {
+const Protected = ({children}) => {
     const user = useSelector(selectLoggedInUser) ; 
   if ( !user) {
-    return <Navigate to={'/login'}/>
+    return <Navigate to={'/login'} replace={true}>  </Navigate>
   }
-  return Children ;
+  return children ;
 
 }
-
 export default Protected

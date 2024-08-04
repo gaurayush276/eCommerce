@@ -40,7 +40,7 @@ function App() {
     }
     ,
     {
-      path :'/product-detail/:id' ,
+      path :'/product-detail/:id' ,  
       element :<Protected> 
         <ProductDetails/> </Protected> 
     }
