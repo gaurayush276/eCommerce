@@ -1,9 +1,11 @@
 import React from 'react'
 
-
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, useNavigate } from 'react-router-dom'
+import { fetchAllProductByUserIdAsync } from '../cart/cartSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectLoggedInUser } from '../auth/authSlice'
 
 const user = {
   name: 'Tom Cook',
@@ -20,8 +22,7 @@ const navigation = [
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Settings', href: '#' },  { name: 'Sign out', href: '/login' },
 ]
 
 function classNames(...classes) {
@@ -30,7 +31,9 @@ function classNames(...classes) {
 
 
 const Navbar = ({children}) => {
-
+  const user = useSelector( selectLoggedInUser) ; 
+   
+  const dispatch = useDispatch ( ) ; 
     const navigate  = useNavigate() ; 
   return (
     <div>
@@ -67,12 +70,15 @@ const Navbar = ({children}) => {
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">
                   <div
-                    onClick={ ()=> navigate('/cart')} 
+                    onClick={ ()=> {
+                      navigate('/cart') ;
+                      dispatch( fetchAllProductByUserIdAsync(user.id ))
+                     } }
                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="absolute -inset-1.5" />
                      
-                    <ShoppingCartIcon aria-hidden="true" className="h-6 w-6 -mr-3" />
+                    <ShoppingCartIcon aria-hidden="true" className="h-6 w-6 -mr-3"  />
                     
                   </div>
                     <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10  mb-5  ">
@@ -94,12 +100,12 @@ const Navbar = ({children}) => {
                     >
                       {userNavigation.map((item) => (
                         <MenuItem key={item.name}>
-                          <a
-                            href={item.href}
+                          <Link
+                            to={item.href}
                             className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         </MenuItem>
                       ))}
                     </MenuItems>
@@ -147,7 +153,7 @@ const Navbar = ({children}) => {
                 <div
                    
                   className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  onClick={ ()=> navigate('/login')}
+                  onClick={ ()=> navigate('/cart')} 
                 >
                   
                  
