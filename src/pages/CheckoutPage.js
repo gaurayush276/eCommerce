@@ -24,6 +24,7 @@ import {
 import { useDispatch } from "react-redux";
 import Cart from "../features/cart/Cart";
 import { useForm } from "react-hook-form";
+import { selectLoggedInUser } from "../features/auth/authSlice";
 
 
 
@@ -43,7 +44,8 @@ const CheckoutPage = () => {
 
   const [subTotal, setSubTotal] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
-
+  const user = useSelector( selectLoggedInUser ) ;
+  console.log(user) 
   const handleQuantity = (e, product) => {
     dispatch(updateCartAsync({ ...product, quantity: e.target.value }));
   };
@@ -65,7 +67,7 @@ const CheckoutPage = () => {
   }, [products]);
   return (
     <div className="flex">
-      <form className=" p-6  " onClick={ handleSubmit(( e) => console.log( e) ) }> 
+      <form className=" p-6  " onClick={ handleSubmit(( e) => dispatch( { ...user , }) ) }> 
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -76,46 +78,27 @@ const CheckoutPage = () => {
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-3">
+              <div className="sm:col-span-4">
                 <label
-                  htmlFor="first-name"
+                  htmlFor="name"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  First name
+                  Full name
                 </label>
                 <div className="mt-2">
                   <input
-                    id="first-name"
-                    name="first-name"
+                    id="name"
+                    name="name"
                     type="text"
-                    { ...register('first-name', {required: true})}
+                    { ...register('name', {required: true})}
 
-                    autoComplete="given-name"
+                    autoComplete="name"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
 
-              <div className="sm:col-span-3">
-                <label
-                  htmlFor="last-name"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Last name
-                </label>
-                <div className="mt-2">
-                  <input
-                    id="last-name"
-                    name="last-name"
-                    type="text"
-                    { ...register('last-name', {required: true})}
-
-                    autoComplete="family-name"
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-
+              
               <div className="sm:col-span-4">
                 <label
                   htmlFor="email"
