@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
- import { addToCart, fetchAllProductByUserId } from './cartApi';
+ import { addToCart, deleteItem, fetchAllProductByUserId, updateCart } from './cartApi';
 
 const initialState = {
   items: []  , 
-  products :[] , 
   value : 0  ,
 };
 
@@ -11,6 +10,22 @@ export const addToCartAsync = createAsyncThunk(
     'cart/addToCart',
     async (item) => {
       const response = await addToCart(item);
+      // The value we return becomes the `fulfilled` action payload
+      return response.data;
+    }
+  );
+export const updateCartAsync = createAsyncThunk(
+    'cart/updateCart',
+    async (item) => {
+      const response = await updateCart(item);
+      // The value we return becomes the `fulfilled` action payload
+      return response.data;
+    }
+  );
+export const deleteItemAsync = createAsyncThunk(
+    'cart/deleteItem',
+    async (id) => {
+      const response = await deleteItem(id);
       // The value we return becomes the `fulfilled` action payload
       return response.data;
     }
@@ -48,7 +63,24 @@ export const cartSlice = createSlice({
       .addCase(fetchAllProductByUserIdAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         // here the added items will be pushed in the array so we are  pushing 
-        state.products = action.payload;
+        state.items = action.payload;
+      })
+      .addCase(updateCartAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(updateCartAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        // replacing the item with some new changes ..
+        const index = state.items.findIndex( item => action.payload.id === item.id  )
+         state.items[index] = action.payload;
+      })
+      .addCase(deleteItemAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(deleteItemAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        const index = state.items.findIndex( item => action.payload.id === item.id  )
+         state.items.splice( index , 1 ) ; 
       })
       
   },
@@ -56,6 +88,6 @@ export const cartSlice = createSlice({
  
 export const { increment } = cartSlice.actions;
  export const selectCart = ( state )=> state.cart.items ; 
- export const selectCartProducts = ( state )=> state.cart.products ; 
+//  export const selectCartitems = ( state )=> state.cart.items ; 
 
 export default cartSlice.reducer;

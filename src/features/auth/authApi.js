@@ -11,6 +11,19 @@ export function createUser (userData) {
         resolve({data}) ; 
     })
 }
+ 
+export function updateUser (user) {
+
+    return new Promise ( async (resolve) =>{
+        const response = await fetch ( 'http://localhost:8000/users='+ user.id,{
+          method: 'PATCH' ,
+            body: JSON.stringify(user) ,
+            headers :{ 'content-type' : 'application/json'}
+        } )
+        const data = response.json() ;
+        resolve({data}) ; 
+    })
+}
 
 export function checkUser (loginInfo) {
 

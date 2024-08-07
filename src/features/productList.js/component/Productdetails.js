@@ -5,9 +5,10 @@ import { RadioGroup } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductByIdAsync, selectProductById } from '../ProductListSlice';
 import { useParams } from 'react-router-dom';
-import { addToCartAsync } from '../../cart/cartSlice';
+import { addToCartAsync, fetchAllProductByUserIdAsync } from '../../cart/cartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
 import Navbar from '../../navbar/navbar';
+import { fetchAllProductByUserId } from '../../cart/cartApi';
 
 // TODO: In server data we will add colors, sizes , highlights. to each product
 
@@ -51,6 +52,7 @@ export default function ProductDetail() {
   const handleCart = (e)=>{
     e.preventDefault () ;
     dispatch( addToCartAsync( {...product , quantity : 1 , user : user.id } ))
+    dispatch( fetchAllProductByUserIdAsync(user.id))
   }
 
   useEffect(() => {
@@ -302,7 +304,8 @@ export default function ProductDetail() {
                 </div>
 
                 <button
-                onClick={ (e)=> handleCart( e)}
+                  
+                onClick={ (e)=> handleCart( e)  } 
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Add to Cart

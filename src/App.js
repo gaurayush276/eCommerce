@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue, useEffect } from 'react';
 import logo from './logo.svg';
  import './App.css';
 import Home from './pages/Home';
@@ -8,9 +8,21 @@ import Cart from './features/cart/Cart';
 import CheckoutPage from './pages/CheckoutPage';
 import ProductDetails from './features/productList.js/component/Productdetails';
 import Protected from './features/auth/components/Protected';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllProductByUserIdAsync } from './features/cart/cartSlice';
+import { selectLoggedInUser } from './features/auth/authSlice';
  
 
 function App() {
+    const user = useSelector( selectLoggedInUser) ; 
+     
+    const dispatch = useDispatch() ; 
+useEffect( () =>{
+  if ( user )
+    dispatch( fetchAllProductByUserIdAsync(user.id)) ; 
+} ,[user]) ; 
+  
+
 
   const appRouter = createBrowserRouter([
     {
@@ -32,11 +44,9 @@ function App() {
     }
     ,
     {
-      path :'/check' ,
-      element :<Protected> 
-        <CheckoutPage/>
-
-      </Protected> 
+      path :'/cart/checkout' ,
+      element : <CheckoutPage/>
+       
     }
     ,
     {

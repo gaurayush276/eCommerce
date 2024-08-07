@@ -5,7 +5,7 @@ import { checkUserAsync, createUserAsync, selectError, selectLoggedInUser } from
 import { Navigate, useNavigate } from 'react-router';
 const Login = () => {
   const dispatch = useDispatch() ; 
-  const { register, handleSubmit , wathc , formState : {errors}} = useForm();
+  const { register, handleSubmit , watch , formState : {errors}} = useForm();
   const [toggle , setToggle ] = useState( false ) ; 
   const [password, setPassword]  = useState( ) ; 
   const [email, setEmail]  = useState( '') ; 

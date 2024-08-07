@@ -3,7 +3,7 @@ import React from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, useNavigate } from 'react-router-dom'
-import { fetchAllProductByUserIdAsync } from '../cart/cartSlice'
+import { fetchAllProductByUserIdAsync, selectCart } from '../cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectLoggedInUser } from '../auth/authSlice'
 
@@ -31,10 +31,8 @@ function classNames(...classes) {
 
 
 const Navbar = ({children}) => {
-  const user = useSelector( selectLoggedInUser) ; 
-   
-  const dispatch = useDispatch ( ) ; 
-    const navigate  = useNavigate() ; 
+    const items = useSelector( selectCart) ; 
+     const navigate  = useNavigate() ; 
   return (
     <div>
        <div className="min-h-full">
@@ -72,8 +70,7 @@ const Navbar = ({children}) => {
                   <div
                     onClick={ ()=> {
                       navigate('/cart') ;
-                      dispatch( fetchAllProductByUserIdAsync(user.id ))
-                     } }
+                      } }
                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="absolute -inset-1.5" />
@@ -81,9 +78,12 @@ const Navbar = ({children}) => {
                     <ShoppingCartIcon aria-hidden="true" className="h-6 w-6 -mr-3"  />
                     
                   </div>
-                    <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10  mb-5  ">
-        3
-      </span>
+                  { items.length > 0 && (
+                     <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10  mb-5  ">
+                     {items.length }
+                   </span>
+                   )}
+                   
 
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
