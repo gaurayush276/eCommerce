@@ -25,6 +25,8 @@ import { useDispatch } from "react-redux";
 import Cart from "../features/cart/Cart";
 import { useForm } from "react-hook-form";
 import { selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
+import { createOrder } from "../features/Orders/OrderApi";
+import { createOrderAsync } from "../features/Orders/OrderSlice";
 
 
 
@@ -78,6 +80,15 @@ const CheckoutPage = () => {
     //  console.log( subTotal ) ;
   }, [products]);
 
+
+  const handlePayment = ( e) =>{
+    setPaymentMethod( e.target.value) ; 
+    console.log(paymentMethod) ; 
+  }
+  const handleOrder = ()=>{
+    const order = { user , paymentMethod , selectedAddress , items , totalItems , subTotal }  ;
+    dispatch(createOrderAsync( order )  ); 
+  }
 
   const handleAddress = (e)=>{
     setSelectedAddress(user.addresses[e.target.value] ) ; 
@@ -320,10 +331,10 @@ const CheckoutPage = () => {
                           <input
                             id="cash"
                             name="payments"
-                             
+                            onChange={handlePayment}
                             value="cash"
                             type="radio"
-                             
+                            checked={paymentMethod === "cash"}
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <label
@@ -336,9 +347,9 @@ const CheckoutPage = () => {
                         <div className="flex items-center gap-x-3">
                           <input
                             id="card"
-                             
+                            onChange={handlePayment}
                             name="payments"
-                            
+                            checked={paymentMethod === "card"}
                             value="card"
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
@@ -433,12 +444,12 @@ const CheckoutPage = () => {
           </div>
 
           <div className="mt-6">
-            <a
-              href="/checkout"
+            <div
+              onClick={ handleOrder }
               className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
             >
-             Order 
-            </a>
+             Order Now 
+            </div>
           </div>
           <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
             <p>

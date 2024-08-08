@@ -12612,5 +12612,113 @@
       "quantity": 1,
       "user": "21eb"
     }
+  ],
+  "orders": [
+   
+    {
+      "id": "8968",
+      "user": {
+        "id": "4f2c",
+        "email": "gaurayush2762@gmail.com",
+        "password": "Ayush@123",
+        "addresses": [
+          {
+            "name": "Ayush Gaur",
+            "email": "gaurayush2762@gmail.com",
+            "contact": "+919336394123",
+            "address": "48/53, General Ganj , Kanpur",
+            "city": "Kanpur",
+            "state": "Uttar Pradesh",
+            "pincode": "208001"
+          },
+          {
+            "name": "Ayush",
+            "email": "gaurayush2762@gmail.com",
+            "phone": "09336394123",
+            "street": "48/53, General Ganj , Kanpur",
+            "city": "Kanpur",
+            "state": "Uttar Pradesh",
+            "pinCode": "208001"
+          }
+        ]
+      },
+      "paymentMethod": "cash ",
+      "selectedAddress": {
+        "name": "Ayush Gaur",
+        "email": "gaurayush2762@gmail.com",
+        "contact": "+919336394123",
+        "address": "48/53, General Ganj , Kanpur",
+        "city": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pincode": "208001"
+      },
+      "items": [
+        {
+          "id": "43",
+          "title": "Decoration Swing",
+          "description": "The Decoration Swing is a charming addition to your home decor. Crafted with intricate details, it adds a touch of elegance and whimsy to any room.",
+          "category": "home-decoration",
+          "price": 59.99,
+          "discountPercentage": 0.65,
+          "rating": 3.56,
+          "stock": 62,
+          "tags": [
+            "home decor",
+            "swing"
+          ],
+          "sku": "MBEK52ST",
+          "weight": 8,
+          "dimensions": {
+            "width": 20.75,
+            "height": 11.18,
+            "depth": 7.92
+          },
+          "warrantyInformation": "Lifetime warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Highly recommended!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Aria Roberts",
+              "reviewerEmail": "aria.roberts@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Caleb Perkins",
+              "reviewerEmail": "caleb.perkins@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Aria Roberts",
+              "reviewerEmail": "aria.roberts@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 2,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.621Z",
+            "updatedAt": "2024-05-23T08:56:21.621Z",
+            "barcode": "6434699988216",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/1.png",
+            "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/2.png",
+            "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/3.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/thumbnail.png",
+          "quantity": "1",
+          "user": "4f2c"
+        }
+      ],
+      "totalItems": 1,
+      "subTotal": 59.99
+    }
   ]
 }
