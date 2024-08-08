@@ -12311,7 +12311,27 @@
     {
       "id": "4f2c",
       "email": "gaurayush2762@gmail.com",
-      "password": "Ayush@123"
+      "password": "Ayush@123",
+      "addresses": [
+        {
+          "name": "Ayush Gaur",
+          "email": "gaurayush2762@gmail.com",
+          "contact": "+919336394123",
+          "address": "48/53, General Ganj , Kanpur",
+          "city": "Kanpur",
+          "state": "Uttar Pradesh",
+          "pincode": "208001"
+        },
+        {
+          "name": "Ayush",
+          "email": "gaurayush2762@gmail.com",
+          "phone": "09336394123",
+          "street": "48/53, General Ganj , Kanpur",
+          "city": "Kanpur",
+          "state": "Uttar Pradesh",
+          "pinCode": "208001"
+        }
+      ]
     },
     {
       "id": "b2b2",
@@ -12326,7 +12346,8 @@
     {
       "id": "21eb",
       "email": "Arjun@gmail.com",
-      "password": "Arjun@123"
+      "password": "Arjun@123",
+      "addresses": []
     },
     {
       "id": "b078",
@@ -12463,130 +12484,6 @@
         "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
-      "quantity": "4",
-      "user": "662a"
-    },
-    {
-      "id": "5",
-      "title": "Red Nail Polish",
-      "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
-      "category": "beauty",
-      "price": 8.99,
-      "discountPercentage": 2.46,
-      "rating": 3.91,
-      "stock": 71,
-      "tags": [
-        "beauty",
-        "nail polish"
-      ],
-      "brand": "Nail Couture",
-      "sku": "YUIIIP4W",
-      "weight": 9,
-      "dimensions": {
-        "width": 8.11,
-        "height": 10.89,
-        "depth": 29.06
-      },
-      "warrantyInformation": "1 year warranty",
-      "shippingInformation": "Ships in 1 week",
-      "availabilityStatus": "In Stock",
-      "reviews": [
-        {
-          "rating": 5,
-          "comment": "Very pleased!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Leo Rivera",
-          "reviewerEmail": "leo.rivera@x.dummyjson.com"
-        },
-        {
-          "rating": 5,
-          "comment": "Great product!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Evan Reed",
-          "reviewerEmail": "evan.reed@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Highly recommended!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Evelyn Sanchez",
-          "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
-        }
-      ],
-      "returnPolicy": "No return policy",
-      "minimumOrderQuantity": 46,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.619Z",
-        "updatedAt": "2024-05-23T08:56:21.619Z",
-        "barcode": "3212847902461",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
-      "quantity": 1,
-      "user": "662a"
-    },
-    {
-      "id": "5",
-      "title": "Red Nail Polish",
-      "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
-      "category": "beauty",
-      "price": 8.99,
-      "discountPercentage": 2.46,
-      "rating": 3.91,
-      "stock": 71,
-      "tags": [
-        "beauty",
-        "nail polish"
-      ],
-      "brand": "Nail Couture",
-      "sku": "YUIIIP4W",
-      "weight": 9,
-      "dimensions": {
-        "width": 8.11,
-        "height": 10.89,
-        "depth": 29.06
-      },
-      "warrantyInformation": "1 year warranty",
-      "shippingInformation": "Ships in 1 week",
-      "availabilityStatus": "In Stock",
-      "reviews": [
-        {
-          "rating": 5,
-          "comment": "Very pleased!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Leo Rivera",
-          "reviewerEmail": "leo.rivera@x.dummyjson.com"
-        },
-        {
-          "rating": 5,
-          "comment": "Great product!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Evan Reed",
-          "reviewerEmail": "evan.reed@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Highly recommended!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Evelyn Sanchez",
-          "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
-        }
-      ],
-      "returnPolicy": "No return policy",
-      "minimumOrderQuantity": 46,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.619Z",
-        "updatedAt": "2024-05-23T08:56:21.619Z",
-        "barcode": "3212847902461",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
       "quantity": 1,
       "user": "662a"
     },
@@ -12654,124 +12551,66 @@
       "user": "4f2c"
     },
     {
-      "id": "29",
-      "title": "Juice",
-      "description": "Refreshing fruit juice, packed with vitamins and great for staying hydrated.",
-      "category": "groceries",
-      "price": 3.99,
-      "discountPercentage": 5.45,
-      "rating": 3.41,
-      "stock": 99,
+      "id": "2",
+      "title": "Eyeshadow Palette with Mirror",
+      "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+      "category": "beauty",
+      "price": 19.99,
+      "discountPercentage": 5.5,
+      "rating": 3.28,
+      "stock": 44,
       "tags": [
-        "beverages"
+        "beauty",
+        "eyeshadow"
       ],
-      "sku": "M2K19S06",
-      "weight": 2,
+      "brand": "Glamour Beauty",
+      "sku": "MVCFH27F",
+      "weight": 3,
       "dimensions": {
-        "width": 8.97,
-        "height": 12.26,
-        "depth": 15.05
+        "width": 12.42,
+        "height": 8.63,
+        "depth": 29.13
       },
-      "warrantyInformation": "1 week warranty",
-      "shippingInformation": "Ships in 1-2 business days",
-      "availabilityStatus": "In Stock",
-      "reviews": [
-        {
-          "rating": 4,
-          "comment": "Very satisfied!",
-          "date": "2024-05-23T08:56:21.620Z",
-          "reviewerName": "Leo Rivera",
-          "reviewerEmail": "leo.rivera@x.dummyjson.com"
-        },
-        {
-          "rating": 2,
-          "comment": "Not worth the price!",
-          "date": "2024-05-23T08:56:21.620Z",
-          "reviewerName": "Ethan Martinez",
-          "reviewerEmail": "ethan.martinez@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Excellent quality!",
-          "date": "2024-05-23T08:56:21.620Z",
-          "reviewerName": "Max Parker",
-          "reviewerEmail": "max.parker@x.dummyjson.com"
-        }
-      ],
-      "returnPolicy": "90 days return policy",
-      "minimumOrderQuantity": 26,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.620Z",
-        "updatedAt": "2024-05-23T08:56:21.620Z",
-        "barcode": "8546824122355",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/groceries/Juice/1.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Juice/thumbnail.png",
-      "quantity": 1,
-      "user": "4f2c"
-    },
-    {
-      "id": "16",
-      "title": "Apple",
-      "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
-      "category": "groceries",
-      "price": 1.99,
-      "discountPercentage": 1.97,
-      "rating": 2.96,
-      "stock": 9,
-      "tags": [
-        "fruits"
-      ],
-      "sku": "QTROUV79",
-      "weight": 8,
-      "dimensions": {
-        "width": 8.29,
-        "height": 5.58,
-        "depth": 12.41
-      },
-      "warrantyInformation": "2 year warranty",
+      "warrantyInformation": "1 year warranty",
       "shippingInformation": "Ships in 2 weeks",
       "availabilityStatus": "In Stock",
       "reviews": [
         {
           "rating": 4,
-          "comment": "Great product!",
-          "date": "2024-05-23T08:56:21.620Z",
-          "reviewerName": "Logan Lee",
-          "reviewerEmail": "logan.lee@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Great product!",
-          "date": "2024-05-23T08:56:21.620Z",
-          "reviewerName": "Elena Long",
-          "reviewerEmail": "elena.long@x.dummyjson.com"
+          "comment": "Very satisfied!",
+          "date": "2024-05-23T08:56:21.618Z",
+          "reviewerName": "Liam Garcia",
+          "reviewerEmail": "liam.garcia@x.dummyjson.com"
         },
         {
           "rating": 1,
-          "comment": "Not as described!",
-          "date": "2024-05-23T08:56:21.620Z",
-          "reviewerName": "Grayson Coleman",
-          "reviewerEmail": "grayson.coleman@x.dummyjson.com"
+          "comment": "Very disappointed!",
+          "date": "2024-05-23T08:56:21.618Z",
+          "reviewerName": "Nora Russell",
+          "reviewerEmail": "nora.russell@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2024-05-23T08:56:21.618Z",
+          "reviewerName": "Elena Baker",
+          "reviewerEmail": "elena.baker@x.dummyjson.com"
         }
       ],
-      "returnPolicy": "60 days return policy",
-      "minimumOrderQuantity": 44,
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 32,
       "meta": {
-        "createdAt": "2024-05-23T08:56:21.620Z",
-        "updatedAt": "2024-05-23T08:56:21.620Z",
-        "barcode": "2517819903837",
+        "createdAt": "2024-05-23T08:56:21.618Z",
+        "updatedAt": "2024-05-23T08:56:21.618Z",
+        "barcode": "2817839095220",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
-        "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
+        "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png",
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
       "quantity": 1,
-      "user": "4f2c"
+      "user": "21eb"
     }
   ]
 }

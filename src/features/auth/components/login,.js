@@ -54,8 +54,8 @@ setConfirmPassword( false ) ;
          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
            <img
              alt="Your Company"
-             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-             className="mx-auto h-10 w-auto"
+             src='https://w7.pngwing.com/pngs/426/341/png-transparent-shopping-cart-e-commerce-online-shopping-logo-shopping-cart-blue-service-logo-thumbnail.png'
+             className="mx-auto h-14 w-14 rounded-full"
            />
            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
              Sign in to your account
@@ -63,7 +63,7 @@ setConfirmPassword( false ) ;
          </div>
  
          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-           <form  onClick={  handleSubmit((data) => {
+           <form  onSubmit={  handleSubmit((data) => {
              !toggle  && ( dispatch(checkUserAsync({email:data.email , password : data.password})))
              toggle  && ( dispatch(createUserAsync({email:data.email , password : data.password})))
              checkValidData( data.email , data.password , data.confirmPassword ) ; 

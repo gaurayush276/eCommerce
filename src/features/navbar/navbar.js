@@ -43,8 +43,8 @@ const Navbar = ({children}) => {
                 <div className="flex-shrink-0">
                   <img
                     alt="Your Company"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    className="h-8 w-8"
+                    src='https://w7.pngwing.com/pngs/426/341/png-transparent-shopping-cart-e-commerce-online-shopping-logo-shopping-cart-blue-service-logo-thumbnail.png'         
+                   className="h-9 w-9 rounded-full"
                   />
                 </div>
                 <div className="hidden md:block">
