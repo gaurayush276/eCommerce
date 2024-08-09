@@ -12,7 +12,7 @@ import {
   initializeUseSelector,
   useSelector,
 } from "react-redux/es/hooks/useSelector";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { current } from "@reduxjs/toolkit";
 import {
   deleteItemAsync,
@@ -24,7 +24,7 @@ import {
 import { useDispatch } from "react-redux";
 import Cart from "../features/cart/Cart";
 import { useForm } from "react-hook-form";
-import { selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
+import { removeUserAddressAsync, selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
 import { createOrder } from "../features/Orders/OrderApi";
 import { createOrderAsync } from "../features/Orders/OrderSlice";
 
@@ -34,6 +34,7 @@ import { createOrderAsync } from "../features/Orders/OrderSlice";
 const CheckoutPage = () => {
   const [open, setOpen] = useState(true);
   const products = useSelector(selectCart);
+  const navigate = useNavigate() ; 
   // console.log(products)
   const dispatch = useDispatch();
   const items = useSelector(selectCart);
@@ -80,6 +81,19 @@ const CheckoutPage = () => {
     //  console.log( subTotal ) ;
   }, [products]);
 
+const removeAddress = (index) => {
+  // Clone the addresses 
+  let newAddresses = [...user.addresses];
+  
+  // Remove the address at the specified index
+  newAddresses.splice(index, 1);
+  // console.log( "newAddresses -->  " , newAddresses ) ; 
+  const updatedUser = { ...user, addresses: newAddresses };
+  // console.log(updatedUser.addresses);  
+  dispatch( updateUserAsync( updatedUser)) ; 
+
+};
+
 
   const handlePayment = ( e) =>{
     setPaymentMethod( e.target.value) ; 
@@ -97,7 +111,7 @@ const CheckoutPage = () => {
     <div className="flex">
       <div> 
       <form
-              className=" p-6"
+              className=" p-6 "
               noValidate
               onSubmit={handleSubmit((data) => {
                 console.log(data);
@@ -313,6 +327,10 @@ const CheckoutPage = () => {
                           <p className="text-sm leading-6 text-gray-500">
                             {address.city}
                           </p>
+                            <img 
+                            className="w-5 h-5 rounded-full cursor-pointer"
+                             src="https://cdn-icons-png.flaticon.com/512/54/54972.png"
+                             onClick={(e)=> removeAddress( index , address )}/> 
                         </div>
                       </li>
                     ))}
@@ -445,7 +463,9 @@ const CheckoutPage = () => {
 
           <div className="mt-6">
             <div
-              onClick={ handleOrder }
+              onClick={ ()=>{handleOrder() ;
+                navigate('/orderPlaced/234234')
+              } }
               className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
             >
              Order Now 

@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   orders: []  , 
   value : 0  ,
+  currentOrderPlaced :null , 
 };
 
 export const createOrderAsync = createAsyncThunk(
@@ -32,11 +33,13 @@ export const orderSlice = createSlice({
         state.status = 'idle';
         // here the added items will be pushed in the array so we are  pushing 
         state.orders.push(action.payload);
+        state.currentOrderPlaced = action.payload ; 
       })
        
   },
 });
  
 export const { increment } = orderSlice.actions;
+export const selectCurrentOrder =( state)=> state.order.currentOrderPlaced  ; 
 
 export default orderSlice.reducer;

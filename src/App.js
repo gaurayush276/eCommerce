@@ -11,6 +11,8 @@ import Protected from './features/auth/components/Protected';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllProductByUserIdAsync } from './features/cart/cartSlice';
 import { selectLoggedInUser } from './features/auth/authSlice';
+import NotFound from './pages/NotFound';
+import SuccessOrder from './pages/SuccessOrder';
  
 
 function App() {
@@ -53,6 +55,16 @@ useEffect( () =>{
       path :'/product-detail/:id' ,  
       element :<Protected> 
         <ProductDetails/> </Protected> 
+    }
+    ,
+    {
+      path :'*' ,  
+      element :<NotFound/>
+    }
+    ,
+    {
+      path :'orderPlaced/:id' ,  
+      element :<SuccessOrder/>
     }
 
   ])
