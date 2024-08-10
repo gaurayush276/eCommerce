@@ -1,6 +1,5 @@
  
 export function  addToCart (item) {
-
     return new Promise ( async (resolve) =>{
         const response = await fetch ( 'http://localhost:8000/cart',{
           method: 'POST' ,
@@ -38,7 +37,6 @@ export function fetchAllProductByUserId( userId ) {
 }
  
   export function deleteItem (id) {
-
     return new Promise ( async (resolve) =>{
         const response = await fetch ( 'http://localhost:8000/cart/' +  id ,{
           method: 'DELETE' ,
@@ -49,3 +47,18 @@ export function fetchAllProductByUserId( userId ) {
         resolve({data}) ; 
     })
 }
+  export function resetCart (id) {
+    return new Promise ( async(resolve) => {
+      const response = await fetchAllProductByUserId(id)  ;
+      const items = response.data ; 
+      for ( let item in items){
+        console.log( items[item].id) ;  
+        await deleteItem(items[item].id) ;
+      }
+
+
+      resolve({status : 'success'}) ; 
+    })
+
+    } 
+ 

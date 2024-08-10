@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
- import { addToCart, deleteItem, fetchAllProductByUserId, updateCart } from './cartApi';
+ import { addToCart, deleteItem, fetchAllProductByUserId, resetCart, updateCart } from './cartApi';
 
 const initialState = {
   items: []  , 
@@ -14,6 +14,7 @@ export const addToCartAsync = createAsyncThunk(
       return response.data;
     }
   );
+ 
 export const updateCartAsync = createAsyncThunk(
     'cart/updateCart',
     async (item) => {
@@ -26,6 +27,14 @@ export const deleteItemAsync = createAsyncThunk(
     'cart/deleteItem',
     async (id) => {
       const response = await deleteItem(id);
+      // The value we return becomes the `fulfilled` action payload
+      return response.data;
+    }
+  );
+export const resetCartAsync = createAsyncThunk(
+    'cart/resetCart',
+    async (id) => {
+      const response = await resetCart(id);
       // The value we return becomes the `fulfilled` action payload
       return response.data;
     }
@@ -82,12 +91,18 @@ export const cartSlice = createSlice({
         const index = state.items.findIndex( item => action.payload.id === item.id  )
          state.items.splice( index , 1 ) ; 
       })
+      .addCase(resetCartAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(resetCartAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.items = [ ] ;
+      })
       
   },
 });
  
 export const { increment } = cartSlice.actions;
  export const selectCart = ( state )=> state.cart.items ; 
-//  export const selectCartitems = ( state )=> state.cart.items ; 
-
+ 
 export default cartSlice.reducer;

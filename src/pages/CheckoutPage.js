@@ -17,6 +17,7 @@ import { current } from "@reduxjs/toolkit";
 import {
   deleteItemAsync,
   fetchAllProductByUserIdAsync,
+  resetCartAsync,
   selectCart,
   selectCartProducts,
   updateCartAsync,
@@ -26,7 +27,7 @@ import Cart from "../features/cart/Cart";
 import { useForm } from "react-hook-form";
 import { removeUserAddressAsync, selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
 import { createOrder } from "../features/Orders/OrderApi";
-import { createOrderAsync } from "../features/Orders/OrderSlice";
+import { createOrderAsync, selectCurrentOrder } from "../features/Orders/OrderSlice";
 
 
 
@@ -53,7 +54,8 @@ const CheckoutPage = () => {
   const [userAddresses, setUserAddresses] = useState(user.addresses);
   const [selectedAddress , setSelectedAddress] = useState( null ) ; 
   const [ paymentMethod , setPaymentMethod ]  = useState( 'cash ') ; 
-
+  const CurrentOrder = useSelector( selectCurrentOrder ) ; 
+   
   const handleQuantity = (e, product) => {
     dispatch(updateCartAsync({ ...product, quantity: e.target.value }));
   };
@@ -102,6 +104,7 @@ const removeAddress = (index) => {
   const handleOrder = ()=>{
     const order = { user , paymentMethod , selectedAddress , items , totalItems , subTotal }  ;
     dispatch(createOrderAsync( order )  ); 
+    // console.log(products) ; 
   }
 
   const handleAddress = (e)=>{
@@ -109,6 +112,7 @@ const removeAddress = (index) => {
   }
   return (
     <div className="flex">
+      { CurrentOrder && <Navigate to={`/orderPlaced/${CurrentOrder.id}`}></Navigate>}
       <div> 
       <form
               className=" p-6 "
@@ -464,7 +468,6 @@ const removeAddress = (index) => {
           <div className="mt-6">
             <div
               onClick={ ()=>{handleOrder() ;
-                navigate('/orderPlaced/234234')
               } }
               className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
             >

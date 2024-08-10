@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
- import { createOrder } from './OrderApi';
+ import { createOrder  } from './OrderApi';
 const initialState = {
   orders: []  , 
   value : 0  ,
@@ -16,13 +16,15 @@ export const createOrderAsync = createAsyncThunk(
   );
  
  
+ 
 export const orderSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
+    //  we had to make an api call that's why we had been using the extra reducers but here we have to make a change in the already defiened state so 
+    resetCurrentOrder : ( state)=>{
+      state.currentOrderPlaced  = null ; 
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -36,10 +38,11 @@ export const orderSlice = createSlice({
         state.currentOrderPlaced = action.payload ; 
       })
        
+       
   },
 });
  
-export const { increment } = orderSlice.actions;
+export const { resetCurrentOrder } = orderSlice.actions;
 export const selectCurrentOrder =( state)=> state.order.currentOrderPlaced  ; 
 
 export default orderSlice.reducer;
