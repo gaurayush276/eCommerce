@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link , useParams } from "react-router-dom";
 import {  resetCurrentOrder, selectCurrentOrder } from "../features/Orders/OrderSlice";
-import { resetCartAsync } from "../features/cart/cartSlice";
+import { resetCartAsync, selectCart } from "../features/cart/cartSlice";
 import { selectLoggedInUser } from "../features/auth/authSlice";
  
 
@@ -16,6 +16,8 @@ function OrderSuccessPage() {
      dispatch( resetCartAsync(user.id)) ; 
      dispatch ( resetCurrentOrder( ) )  ;
    }, [dispatch ,user.id ])
+   
+ 
    
   return (
     <>

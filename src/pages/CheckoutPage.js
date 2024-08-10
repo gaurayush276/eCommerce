@@ -51,8 +51,7 @@ const CheckoutPage = () => {
   const [totalItems, setTotalItems] = useState(0); 
   const [update , setUpdate ] = useState( false ) ; 
   const user  = useSelector( selectLoggedInUser ) ;
-  const [userAddresses, setUserAddresses] = useState(user.addresses);
-  const [selectedAddress , setSelectedAddress] = useState( null ) ; 
+   const [selectedAddress , setSelectedAddress] = useState( null ) ; 
   const [ paymentMethod , setPaymentMethod ]  = useState( 'cash ') ; 
   const CurrentOrder = useSelector( selectCurrentOrder ) ; 
    
@@ -60,11 +59,7 @@ const CheckoutPage = () => {
     dispatch(updateCartAsync({ ...product, quantity: e.target.value }));
   };
   
-  
-    useEffect(() => {
-      setUserAddresses(user.addresses);
-    }, [update]);
-   
+ 
 
   const removeItem = (product) => {
     dispatch(deleteItemAsync(product.id));
@@ -96,14 +91,20 @@ const removeAddress = (index) => {
 
 };
 
+ 
 
-  const handlePayment = ( e) =>{
+  const handlePayment = ( e ) =>{
     setPaymentMethod( e.target.value) ; 
     console.log(paymentMethod) ; 
   }
   const handleOrder = ()=>{
-    const order = { user , paymentMethod , selectedAddress , items , totalItems , subTotal }  ;
-    dispatch(createOrderAsync( order )  ); 
+    if ( items.length ) {
+      const order = { user , paymentMethod , selectedAddress , items , totalItems , subTotal }  ;
+      dispatch(createOrderAsync( order )  ); 
+    }
+    else {
+      alert('Please add something in cart to order') ; 
+    }
     // console.log(products) ; 
   }
 
@@ -112,7 +113,7 @@ const removeAddress = (index) => {
   }
   return (
     <div className="flex">
-      { CurrentOrder && <Navigate to={`/orderPlaced/${CurrentOrder.id}`}></Navigate>}
+      { items  &&  CurrentOrder && <Navigate to={`/orderPlaced/${CurrentOrder.id}`}></Navigate>}
       <div> 
       <form
               className=" p-6 "
