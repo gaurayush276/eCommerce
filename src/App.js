@@ -15,6 +15,7 @@ import NotFound from './pages/NotFound';
 import SuccessOrder from './pages/SuccessOrder';
 import UserOrders from './features/user/components/UserOrders';
 import UserProfile from './features/user/components/UserProfile'; 
+import Logout from './features/auth/components/Logout';
  
 
 function App() {
@@ -32,6 +33,10 @@ useEffect( () =>{
     {
       path : '/login',
       element: <LoginPage/>
+    },
+    {
+      path : '/logout',
+      element: <Logout/>
     },
     {
       path :'/' ,
