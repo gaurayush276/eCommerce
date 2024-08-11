@@ -9,7 +9,7 @@ const UserProfile = () => {
   console.log( user  ) 
   const dispatch = useDispatch( ) ; 
   const [toggleAdd , setToggleAdd ] = useState( false )  ;
-  
+   
   const AddAddress = ( )=>{
     setToggleAdd( !toggleAdd ) ; 
   }
@@ -24,6 +24,7 @@ const UserProfile = () => {
     const updatedUser = { ...user, addresses: newAddresses };
     // console.log(updatedUser.addresses);  
     dispatch( updateUserAsync( updatedUser)) ; 
+
   
   };
 
@@ -34,8 +35,8 @@ const UserProfile = () => {
       <div className='p-4 flex w-full justify-between items-center border-b-2 '> 
         <h1 className='  lg:text-6xl sm:text-2xl font-semibold text-gray-800  m-3'> {user.addresses[0].name} </h1>
         <div className='flex-col gap-4'> 
-          <p className='text-lg font-semibold text-gray-800'> Contact :  9336394123</p>
-          <p className='text-lg font-semibold text-gray-800'> Gmail :  {user.email }</p>
+          <p className='sm:text-base text-[0.5rem] text font-semibold text-gray-800'> Contact :  9336394123</p>
+          <p className='sm:text-base  text-[0.5rem] font-semibold text-gray-800'> Gmail :  {user.email }</p>
         </div>
       </div>
       <div className="border-b border-gray-900/10 p-5 ">
@@ -48,9 +49,9 @@ const UserProfile = () => {
                     {user.addresses.map((address, index) => (
                       <li
                         key={index}
-                        className="m-2 rounded flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
+                        className="m-2 rounded  sm:flex  sm:justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
                       >
-                        <div className="flex gap-x-4">
+                        <div className="flex   gap-x-4">
                           <div className="min-w-0 flex-auto">
                             <p className="text-sm font-semibold leading-6 text-gray-900">
                               {address.name}
@@ -63,7 +64,7 @@ const UserProfile = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="hidden sm:flex sm:flex-col sm:items-end">
+                        <div className="  sm:flex sm:flex-col sm:items-end">
                           <p className="text-sm leading-6 text-gray-900">
                             Phone: {address.phone}
                           </p>

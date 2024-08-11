@@ -27,12 +27,6 @@ const UserOrders = () => {
           items =  items + order.totalItems )  ;
         setTotalItems( items ) ; 
     } , [] ) ;  
-
-
-     
-
-     
-    
    
     
   return (

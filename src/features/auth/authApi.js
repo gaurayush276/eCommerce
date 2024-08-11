@@ -24,6 +24,15 @@ export function updateUser (user) {
         resolve({data}) ; 
     })
 }
+ 
+export function signOut (userId) {
+
+    return new Promise ( async (resolve) =>{
+        const response = await fetch ( 'http://localhost:8000/users/'+ userId )
+         
+        resolve({Status : "User signed out "}) ; 
+    })
+}
 
 export function checkUser (loginInfo) {
 
@@ -49,5 +58,7 @@ export function checkUser (loginInfo) {
          
     })
 }
+
+
 
  
