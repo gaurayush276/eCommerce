@@ -13,6 +13,8 @@ import { fetchAllProductByUserIdAsync } from './features/cart/cartSlice';
 import { selectLoggedInUser } from './features/auth/authSlice';
 import NotFound from './pages/NotFound';
 import SuccessOrder from './pages/SuccessOrder';
+import UserOrders from './features/user/components/UserOrders';
+import UserProfile from './features/user/components/UserProfile'; 
  
 
 function App() {
@@ -65,6 +67,18 @@ useEffect( () =>{
     {
       path :'orderPlaced/:id' ,  
       element :<SuccessOrder/>
+    },
+    {
+      path : '/orders',
+      element : <UserOrders/>
+    },
+    {
+      path :'orderPlaced/:id' ,  
+      element :<SuccessOrder/>
+    },
+    {
+      path :'/profile' ,  
+      element :<UserProfile/>
     }
 
   ])

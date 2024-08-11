@@ -98,11 +98,15 @@ const removeAddress = (index) => {
     console.log(paymentMethod) ; 
   }
   const handleOrder = ()=>{
-    if ( items.length ) {
+    if ( items.length && selectedAddress ) {
       const order = { user , paymentMethod , selectedAddress , items , totalItems , subTotal }  ;
       dispatch(createOrderAsync( order )  ); 
     }
+      
     else {
+      if ( !selectedAddress)
+        alert( "Please mention the address")
+      else 
       alert('Please add something in cart to order') ; 
     }
     // console.log(products) ; 
@@ -335,7 +339,7 @@ const removeAddress = (index) => {
                             <img 
                             className="w-5 h-5 rounded-full cursor-pointer"
                              src="https://cdn-icons-png.flaticon.com/512/54/54972.png"
-                             onClick={(e)=> removeAddress( index , address )}/> 
+                             onClick={(e)=>  removeAddress( index , address )}/> 
                         </div>
                       </li>
                     ))}

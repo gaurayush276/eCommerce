@@ -15,14 +15,15 @@ const user = {
 }
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Orders', href: '/orders', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
   { name: 'Reports', href: '#', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },  { name: 'Sign out', href: '/login' },
+  { name: 'Your Profile', href: '/profile' },
+  { name: 'Settings', href: '#' }, 
+  { name: 'Sign out', href: '/login' },
 ]
 
 function classNames(...classes) {
@@ -50,9 +51,9 @@ const Navbar = ({children}) => {
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         aria-current={item.current ? 'page' : undefined}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -60,7 +61,7 @@ const Navbar = ({children}) => {
                         )}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

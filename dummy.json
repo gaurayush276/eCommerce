@@ -12323,6 +12323,15 @@
           "pinCode": "208001"
         },
         {
+          "name": "project_Spotify_clone",
+          "email": "gaurayush2762@gmail.com",
+          "phone": "09336394123",
+          "street": "48/53, General Ganj , Kanpur",
+          "city": "Kanpur",
+          "state": "Uttar Pradesh",
+          "pinCode": "208001"
+        },
+        {
           "name": "Test100",
           "email": "gaurayush2762@gmail.com",
           "phone": "09336394123",
@@ -12594,6 +12603,108 @@
       ],
       "totalItems": 1,
       "subTotal": 9.99
+    },
+    {
+      "id": "65a5",
+      "user": {
+        "id": "4f2c",
+        "email": "gaurayush2762@gmail.com",
+        "password": "Ayush@123",
+        "addresses": [
+          {
+            "name": "Ayush Gaur",
+            "email": "gaurayush2762@gmail.com",
+            "phone": "09336394123",
+            "street": "48/53, General Ganj , Kanpur",
+            "city": "Kanpur",
+            "state": "Uttar Pradesh",
+            "pinCode": "208001"
+          },
+          {
+            "name": "Test100",
+            "email": "gaurayush2762@gmail.com",
+            "phone": "09336394123",
+            "street": "48/53, General Ganj , Kanpur",
+            "city": "Kanpur",
+            "state": "Uttar Pradesh",
+            "pinCode": "208001"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Test100",
+        "email": "gaurayush2762@gmail.com",
+        "phone": "09336394123",
+        "street": "48/53, General Ganj , Kanpur",
+        "city": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pinCode": "208001"
+      },
+      "items": [
+        {
+          "id": "16",
+          "title": "Apple",
+          "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
+          "category": "groceries",
+          "price": 1.99,
+          "discountPercentage": 1.97,
+          "rating": 2.96,
+          "stock": 9,
+          "tags": [
+            "fruits"
+          ],
+          "sku": "QTROUV79",
+          "weight": 8,
+          "dimensions": {
+            "width": 8.29,
+            "height": 5.58,
+            "depth": 12.41
+          },
+          "warrantyInformation": "2 year warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Logan Lee",
+              "reviewerEmail": "logan.lee@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Elena Long",
+              "reviewerEmail": "elena.long@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Not as described!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Grayson Coleman",
+              "reviewerEmail": "grayson.coleman@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "60 days return policy",
+          "minimumOrderQuantity": 44,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.620Z",
+            "updatedAt": "2024-05-23T08:56:21.620Z",
+            "barcode": "2517819903837",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png",
+          "quantity": 1,
+          "user": "4f2c"
+        }
+      ],
+      "totalItems": 1,
+      "subTotal": 1.99
     }
   ]
 }
