@@ -60,6 +60,7 @@ export default function ProductList() {
   const handleFilter = (e, section, option) => {
     const newFilter = { ...filter, [section.id]: option.value };
     setFilter(newFilter);
+    console.log( "filter clicked ") ; 
      console.log(section.id, option.value);
   };
 
@@ -297,7 +298,7 @@ export default function ProductList() {
                             </span>
                           </Disclosure.Button>
                         </h3>
-                        <Disclosure.Panel className="pt-6">
+                        <Disclosure.Panel className="pt-6 ">
                           <div className="space-y-4">
                             {section.options.map((option, optionIdx) => (
                               <div
@@ -311,7 +312,8 @@ export default function ProductList() {
                                   type="checkbox"
                                   defaultChecked={option.checked}
                                   onChange={(e) =>
-                                    handleFilter(e, section, option)
+                                  handleFilter(e, section, option)
+                              
                                   }
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
@@ -332,6 +334,7 @@ export default function ProductList() {
               </form>
 
               {/* Product grid */}
+              {/* Product card  */}
               <div className="lg:col-span-3">
                 {/* This is our products list  */}
                 <div className="bg-white">

@@ -16,7 +16,11 @@ import SuccessOrder from './pages/SuccessOrder';
 import UserOrders from './features/user/components/UserOrders';
 import UserProfile from './features/user/components/UserProfile'; 
 import Logout from './features/auth/components/Logout';
- 
+import ForgotPassword from './pages/ForgotPassword'; 
+ import AdminHome from './pages/AdminHome'
+ import AdminProductDetails from './pages/AdminProductDetails' ; 
+import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
+import ProductForm from './features/admin/component/ProductForm';
 
 function App() {
     const user = useSelector( selectLoggedInUser) ; 
@@ -28,11 +32,14 @@ useEffect( () =>{
 } ,[user]) ; 
   
 
-
   const appRouter = createBrowserRouter([
     {
       path : '/login',
       element: <LoginPage/>
+    },
+    {
+      path : '/forgot-password',
+      element: <ForgotPassword/> 
     },
     {
       path : '/logout',
@@ -46,10 +53,15 @@ useEffect( () =>{
     }
     ,
     {
+      path :'/admin' ,
+      element : <ProtectedAdmin> 
+        <AdminHome/>
+      </ProtectedAdmin> 
+    }
+    ,
+    {
       path :'/cart' ,
-      element :<Protected>
-        <Cart/>
-         </Protected> 
+      element :<Protected> <Cart/> </Protected> 
     }
     ,
     {
@@ -60,8 +72,17 @@ useEffect( () =>{
     ,
     {
       path :'/product-detail/:id' ,  
-      element :<Protected> 
-        <ProductDetails/> </Protected> 
+      element :<Protected> <ProductDetails/> </Protected> 
+    }
+    ,
+    {
+      path :'/admin/product-detail/:id' ,  
+      element :<ProtectedAdmin>  <AdminProductDetails/> </ProtectedAdmin> 
+    }
+    ,
+    {
+      path :'/admin/product-form' ,  
+      element :<ProtectedAdmin>  <ProductForm/> </ProtectedAdmin> 
     }
     ,
     {
@@ -77,10 +98,7 @@ useEffect( () =>{
       path : '/orders',
       element : <UserOrders/>
     },
-    {
-      path :'orderPlaced/:id' ,  
-      element :<SuccessOrder/>
-    },
+    
     {
       path :'/profile' ,  
       element :<UserProfile/>

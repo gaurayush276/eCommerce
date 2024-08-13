@@ -37,6 +37,7 @@ const UserProfile = () => {
         <div className='flex-col gap-4'> 
           <p className='sm:text-base text-[0.5rem] text font-semibold text-gray-800'> Contact :  9336394123</p>
           <p className='sm:text-base  text-[0.5rem] font-semibold text-gray-800'> Gmail :  {user.email }</p>
+          <p className='sm:text-base  text-[0.5rem] font-semibold text-green-500'> Role :  {user.role }</p>
         </div>
       </div>
       <div className="border-b border-gray-900/10 p-5 ">

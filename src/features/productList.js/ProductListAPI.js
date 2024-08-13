@@ -1,6 +1,9 @@
 
 // A mock function to mimic making an async request for data
-export function fetchAllProducts( ) {
+
+
+// not using this api beacause fetchAllProductsByFilter is handling the job 
+export function fetchAllProducts( ) {     
   return new Promise(async (resolve) =>{
      const response = await fetch('http://localhost:8000/products')
       const data = await response.json();
@@ -8,6 +11,8 @@ export function fetchAllProducts( ) {
   }
   );
 }
+
+ 
 export function fetchProductById( id ) {
   return new Promise(async (resolve) =>{
      const response = await fetch('http://localhost:8000/products/' + id )
@@ -34,6 +39,32 @@ export function fetchBrands( ) {
   }
   );
 }
+
+export function createProduct (user) {
+
+  return new Promise ( async (resolve) =>{
+      const response = await fetch ( 'http://localhost:8000/products/' ,{
+        method: 'POST' ,
+          body: JSON.stringify(user) ,
+          headers :{ 'content-type' : 'application/json'}
+      } )
+      const data = response.json() ;
+      resolve({data}) ; 
+  })
+}
+
+
+export function deleteProduct ( product ) {
+   return new Promise ( async (resolve) =>{
+    const response = await fetch ( 'http://localhost:8000/products/' + product.id ,{
+      method: 'DELETE' ,
+        body: JSON.stringify(product) ,
+        headers :{ 'content-type' : 'application/json'}
+    } )
+    const data = response.json() ;
+    resolve({data}) ; 
+})
+}
  
 
  export function fetchAllProductsByFilter( filter  ) {
@@ -43,7 +74,7 @@ export function fetchBrands( ) {
   for ( let key in filter ) {
     queryString += `${key}=${filter[key]}&`
   }
-  // console.log(  queryString) ; 
+  console.log(  queryString ) ; 
   // queryString ->  category=smartphone   ; 
   return new Promise(async (resolve) =>{
      const response = await fetch('http://localhost:8000/products?' + queryString ) ;

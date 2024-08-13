@@ -3,6 +3,7 @@ import {useForm}from 'react-hook-form'
 import {useDispatch, useSelector} from 'react-redux' ;
 import { checkUserAsync, createUserAsync, selectError, selectLoggedInUser } from '../authSlice';
 import { Navigate, useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 const Login = () => {
   const dispatch = useDispatch() ; 
   const { register, handleSubmit , watch , formState : {errors}} = useForm();
@@ -64,8 +65,12 @@ setConfirmPassword( false ) ;
  
          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
            <form  onSubmit={  handleSubmit((data) => {
-             !toggle  && ( dispatch(checkUserAsync({email:data.email , password : data.password})))
-             toggle  && ( dispatch(createUserAsync({email:data.email , password : data.password})))
+             !toggle  && ( dispatch(
+              checkUserAsync({email:data.email , password : data.password }
+              )))
+             toggle  && ( dispatch(
+              //  role is added here to set the admin and user distingution for admin page to add products  
+              createUserAsync({email:data.email , password : data.password , adddresses : [] ,role : 'user' })))
              checkValidData( data.email , data.password , data.confirmPassword ) ; 
            } )} method="POST" className="space-y-6">
                <div>
@@ -106,9 +111,9 @@ setConfirmPassword( false ) ;
                    Password
                  </label>
                 { !toggle && ( <div className="text-sm">
-                   <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                   <Link to="/forgot-password" className="font-semibold text-indigo-600 hover:text-indigo-500">
                      Forgot password?
-                   </a>
+                   </Link>
                  </div> ) }
                </div>
                <div className="mt-2">
