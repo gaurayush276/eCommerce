@@ -86,6 +86,11 @@ useEffect( () =>{
     }
     ,
     {
+      path :'/admin/product-form/edit/:id' ,  
+      element :<ProtectedAdmin>  <ProductForm/> </ProtectedAdmin> 
+    }
+    ,
+    {
       path :'*' ,  
       element :<NotFound/>
     }

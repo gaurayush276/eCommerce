@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchAllProducts, fetchAllProductsByFilter, fetchCategories ,fetchBrands, fetchProductById, createProduct ,deleteProduct } from './ProductListAPI';
+import { fetchAllProducts, fetchAllProductsByFilter, fetchCategories ,fetchBrands, fetchProductById, createProduct ,deleteProduct, updateProduct } from './ProductListAPI';
 
 const initialState = {
    products: [],
@@ -42,6 +42,14 @@ export const deleteProductAsync = createAsyncThunk(
   'products/deleteProduct',
   async ( product) => {
     const response = await deleteProduct(product );
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+export const updateProductAsync = createAsyncThunk(
+  'products/updateProduct',
+  async ( product) => {
+    const response = await updateProduct(product );
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
@@ -138,6 +146,14 @@ export const productSlice = createSlice({
         state.status = 'idle';
         const index =  state.products.findIndex( ind => action.payload === ind  )     
         state.products.splice(index , 1 ) ; 
+      })
+      .addCase(updateProductAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(updateProductAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        const index =  state.products.findIndex( ind => action.payload.id === ind.id  )     
+        state.products[index] = action.payload  ; 
       });
   },
 });

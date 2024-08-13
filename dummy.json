@@ -2,18 +2,18 @@
   "products": [
     {
       "id": "3",
-      "title": "Powder Canister",
+      "title": "edited 3",
       "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
-      "category": "beauty",
+      "category": "laptops",
       "price": 14.99,
       "discountPercentage": 18.14,
-      "rating": 3.82,
+      "rating": "5",
       "stock": 59,
       "tags": [
         "beauty",
         "face powder"
       ],
-      "brand": "Velvet Touch",
+      "brand": "Fashion Shades",
       "sku": "9EN8WLT2",
       "weight": 8,
       "dimensions": {
@@ -56,9 +56,14 @@
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
       },
       "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+      "imgae2": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+      "imaga3": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+      "ca": "smartphones"
     },
     {
       "id": "4",

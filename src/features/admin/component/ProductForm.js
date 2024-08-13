@@ -1,18 +1,43 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../../navbar/navbar'
 import { useDispatch, useSelector } from 'react-redux'
-import { createProductAsync, selectBrands, selectCategories } from '../../productList.js/ProductListSlice'
+import { createProductAsync, selectAllProducts, selectBrands, selectCategories, updateProductAsync } from '../../productList.js/ProductListSlice'
 import { useForm } from 'react-hook-form'
+import { useParams } from 'react-router'
+import { resetCart } from '../../cart/cartApi'
 
 const ProductForm = () => {
 
     const brands = useSelector( selectBrands) ; 
     console.log( brands ) ; 
     const categories = useSelector( selectCategories ) ; 
-  const { handleSubmit , register }  = useForm() ; 
+  const { handleSubmit , register , setValue ,reset }  = useForm() ; 
    const dispatch = useDispatch() ; 
-  
+    const params = useParams() ; 
+    console.log( params )
+    const products = useSelector( selectAllProducts ) ; 
+    const index = products.findIndex( prod => params.id === prod.id ) ; 
+    console.log( products[index]) ; 
+    const selectedProduct  = products[index] ; 
+
+    useEffect( ()=>{
+          setValue( 'title' , selectedProduct.title) ; 
+          setValue( 'description' , selectedProduct.description) ; 
+          setValue( 'discountPercentage' , selectedProduct.discountPercentage) ; 
+          setValue( 'brand' , selectedProduct.brand) ; 
+          setValue( 'category' , selectedProduct.category) ; 
+          setValue( 'price' , selectedProduct.price) ; 
+          setValue( 'stock' , selectedProduct.stock) ; 
+          setValue( 'rating' , selectedProduct.rating) ; 
+          setValue( 'category' , selectedProduct.category ) ; 
+          setValue( 'image1' , selectedProduct.images[0]) ; 
+          setValue( 'imgae2' , selectedProduct.images[1]) ; 
+          setValue( 'imaga3' , selectedProduct.images[2]) ; 
+          setValue( 'thumbnail' , selectedProduct.thumbnail) ; 
+    } , [ ])
+
+
   return (
     <div>
         <Navbar/>
@@ -28,13 +53,27 @@ const ProductForm = () => {
           delete product.image1 ;
           delete product.image2 ;
           delete product.image3 ;
-          console.log( product , typeof(product)) ; 
-          dispatch( createProductAsync(product))  ;
-          }
-          )
-           
-           
-           )}>
+          product.id = params.id ; 
+       //   console.log( product , typeof(product)) ;  
+
+       if ( params.id ) {
+         dispatch( updateProductAsync( product )) ;
+         reset()  ; 
+       }
+      else {
+        dispatch( createProductAsync(product))  ;
+        reset() ; 
+        //  console.log( "product updated ") ; 
+
+      }
+
+
+
+
+          }) )}
+          
+          
+          >
     <div className="space-y-12">
       <div className="border-b border-gray-900/10 pb-12">
         <h2 className="text-3xl font-semibold leading-7 text-gray-900">Add Product</h2>
@@ -99,9 +138,9 @@ const ProductForm = () => {
             <div className="mt-2">
               <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                 <input
-              { ...register('discount' ,{required : true } )  }
-                  id="discount"
-                  name="discount"
+              { ...register('discountPercentage' ,{required : true } )  }
+                  id="discountPercentage"
+                  name="discountPercentage"
                   type="text"
                   className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 />
@@ -221,7 +260,7 @@ const ProductForm = () => {
           <div className="sm:col-span-2  ">
             <span  className=' font-semibold text-base text-gray-800'> Brands </span>
             <select
-             { ...register('category' ,{required : true } )  }
+             { ...register('brand' ,{required : true } )  }
             className='rounded-xl border-1 border-gray-400  '> 
             <option value={'Choose Brand'}> Choose Brand </option>
                 { brands.map( brand =>(
@@ -235,7 +274,7 @@ const ProductForm = () => {
           <div className="sm:col-span-2  ">
             <span  className=' font-semibold text-base text-gray-800'> Category </span>
             <select
-            { ...register('brand' ,{required : true } )  }
+            { ...register('category' ,{required : true } )  }
               className='rounded-xl border-1 border-gray-400   '> 
                 <option
                > Choose Category </option>

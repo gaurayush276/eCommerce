@@ -414,13 +414,12 @@ const confirmDelete = ()=>{
                          </div>
                        </Link>
                        <div  className='flex gap-2' > 
-                       <button
-                       
-                   type="submit"
+                       <Link
+                       to={`/admin/product-form/edit/${product.id}`} 
                    className="rounded-md mt-3 bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                 >
+                 > 
                    Edit
-                 </button>
+                 </Link>
 
 
                        <button
@@ -429,7 +428,7 @@ const confirmDelete = ()=>{
                            confirmDelete();
                          }}
                        
-                   className="rounded-md mt-3 bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                   className="rounded-md mt-3 bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                  >
                    Delete
                  </button> 
@@ -444,7 +443,7 @@ const confirmDelete = ()=>{
 
             
   { showDelete && (
-  <div className='fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50'>
+  <div className='fixed inset-0 flex items-center justify-center z-50  bg-black bg-opacity-50'>
     <div className='bg-white rounded-xl p-8 max-w-md w-full mx-4'>
       <p className='text-lg text-blue-800 mb-6'>
         Are you sure you want to delete the product "{deleteProduct?.title}"?
