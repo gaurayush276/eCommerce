@@ -32,6 +32,7 @@ export function fetchCategories( ) {
 }
 
 export function fetchBrands( ) {
+  
   return new Promise(async (resolve) =>{
      const response = await fetch('http://localhost:8000/brands')
       const data = await response.json();
@@ -67,6 +68,7 @@ export function deleteProduct ( product ) {
 }
  
 export function updateProduct ( product ) {
+  console.log( "frontend callled") ; 
    return new Promise ( async (resolve) =>{
     const response = await fetch ( 'http://localhost:8000/products/' + product.id ,{
       method: 'PATCH' ,
@@ -80,7 +82,8 @@ export function updateProduct ( product ) {
  
 
  export function fetchAllProductsByFilter( filter  ) {
-
+  // const date= new Date() ; 
+  //  console.log("frontend " , date.getUTCMilliseconds()) ; 
   let queryString = '' ; 
   // filer  = { "category" : "smartphone" } 
   for ( let key in filter ) {

@@ -2,12 +2,12 @@
   "products": [
     {
       "id": "3",
-      "title": "edited 3",
+      "title": "Maida",
       "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
       "category": "laptops",
       "price": 14.99,
       "discountPercentage": 18.14,
-      "rating": "5",
+      "rating": "3.1",
       "stock": 59,
       "tags": [
         "beauty",
@@ -57,8 +57,8 @@
       },
       "images": [
         "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
-        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
-        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
       "imgae2": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
@@ -11455,39 +11455,6 @@
         "https://cdn.dummyjson.com/products/images/womens-watches/Women's%20Wrist%20Watch/3.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/womens-watches/Women's%20Wrist%20Watch/thumbnail.png"
-    },
-    {
-      "id": "08fa",
-      "title": "Mark 75",
-      "description": "Best armour mark 75 by Tony Stark",
-      "price": "99999999999",
-      "discount": "123",
-      "stock": "1",
-      "thumbnail": "https://www.hottoysph.com/checklist/wp-content/uploads/mms75-markiii9.jpg",
-      "category": "smartphones",
-      "brand": "automotive",
-      "images": [
-        "https://www.hottoysph.com/checklist/wp-content/uploads/mms75-markiii9.jpg",
-        "https://www.hottoysph.com/checklist/wp-content/uploads/mms75-markiii9.jpg",
-        "https://www.hottoysph.com/checklist/wp-content/uploads/mms75-markiii9.jpg"
-      ]
-    },
-    {
-      "id": "7430",
-      "title": "Lamp ",
-      "description": "Bright Present",
-      "price": "899",
-      "discount": "90",
-      "stock": "100",
-      "rating": "4.1",
-      "thumbnail": "https://m.media-amazon.com/images/I/71jIfDWFmEL._AC_UF1000,1000_QL80_.jpg",
-      "category": "home-decoration",
-      "brand": "Samsung",
-      "images": [
-        "https://m.media-amazon.com/images/I/71jIfDWFmEL._AC_UF1000,1000_QL80_.jpg",
-        "https://m.media-amazon.com/images/I/71jIfDWFmEL._AC_UF1000,1000_QL80_.jpg",
-        "https://m.media-amazon.com/images/I/71jIfDWFmEL._AC_UF1000,1000_QL80_.jpg"
-      ]
     }
   ],
   "category": [
@@ -11610,6 +11577,12 @@
       "label": "lighting",
       "checked": false,
       "id": "b87b"
+    },
+    {
+      "id": "3a55",
+      "email": "test100@gmail.com",
+      "password": "tesT@123",
+      "role": "admin"
     }
   ],
   "brands": [
@@ -12016,15 +11989,6 @@
           "city": "Kanpur",
           "state": "Uttar Pradesh",
           "pinCode": "208001"
-        },
-        {
-          "name": ",mfdsnfms",
-          "email": "gaurayush2762@gmail.com",
-          "phone": "09336394123",
-          "street": "48/53, General Ganj , Kanpur",
-          "city": "Kanpur",
-          "state": "Uttar Pradesh",
-          "pinCode": "208001"
         }
       ]
     },
@@ -12043,6 +12007,20 @@
           "pinCode": "208001"
         }
       ]
+    },
+    {
+      "id": "41e0",
+      "email": "gaurayush272@gmail.com",
+      "password": "123456",
+      "adddresses": [],
+      "role": "user"
+    },
+    {
+      "id": "95b6",
+      "email": "gaurayush27@gmail.com",
+      "password": "123456",
+      "adddresses": [],
+      "role": "user"
     }
   ],
   "cart": [
@@ -12171,6 +12149,73 @@
       "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
       "quantity": 1,
       "user": "662a"
+    },
+    {
+      "id": "3",
+      "title": "Powder Canister",
+      "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+      "category": "Fashion",
+      "price": 14.99,
+      "discountPercentage": 18.14,
+      "rating": "3.1",
+      "stock": 59,
+      "tags": [
+        "beauty",
+        "face powder"
+      ],
+      "brand": "Fashion Shades",
+      "sku": "9EN8WLT2",
+      "weight": 8,
+      "dimensions": {
+        "width": 24.16,
+        "height": 10.7,
+        "depth": 11.07
+      },
+      "warrantyInformation": "2 year warranty",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Very happy with my purchase!",
+          "date": "2024-05-23T08:56:21.618Z",
+          "reviewerName": "Ethan Thompson",
+          "reviewerEmail": "ethan.thompson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great value for money!",
+          "date": "2024-05-23T08:56:21.618Z",
+          "reviewerName": "Levi Hicks",
+          "reviewerEmail": "levi.hicks@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2024-05-23T08:56:21.618Z",
+          "reviewerName": "Hazel Gardner",
+          "reviewerEmail": "hazel.gardner@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 25,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.618Z",
+        "updatedAt": "2024-05-23T08:56:21.618Z",
+        "barcode": "0516267971277",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+        "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+      "imgae2": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+      "imaga3": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+      "ca": "smartphones",
+      "quantity": 1,
+      "user": "4f2c"
     }
   ],
   "orders": [
@@ -12486,6 +12531,125 @@
       ],
       "totalItems": 1,
       "subTotal": 5.49
+    },
+    {
+      "id": "7b8a",
+      "user": {
+        "id": "4f2c",
+        "email": "gaurayush2762@gmail.com",
+        "password": "Ayush@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Ayush Gaur",
+            "email": "gaurayush2762@gmail.com",
+            "phone": "09336394123",
+            "street": "48/53, General Ganj , Kanpur",
+            "city": "Kanpur",
+            "state": "Uttar Pradesh",
+            "pinCode": "208001"
+          },
+          {
+            "name": "Test100",
+            "email": "gaurayush2762@gmail.com",
+            "phone": "09336394123",
+            "street": "48/53, General Ganj , Kanpur",
+            "city": "Kanpur",
+            "state": "Uttar Pradesh",
+            "pinCode": "208001"
+          },
+          {
+            "name": ",mfdsnfms",
+            "email": "gaurayush2762@gmail.com",
+            "phone": "09336394123",
+            "street": "48/53, General Ganj , Kanpur",
+            "city": "Kanpur",
+            "state": "Uttar Pradesh",
+            "pinCode": "208001"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": ",mfdsnfms",
+        "email": "gaurayush2762@gmail.com",
+        "phone": "09336394123",
+        "street": "48/53, General Ganj , Kanpur",
+        "city": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pinCode": "208001"
+      },
+      "items": [
+        {
+          "id": "3",
+          "title": "Powder Canister",
+          "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+          "category": "Fashion",
+          "price": 14.99,
+          "discountPercentage": 18.14,
+          "rating": "3.1",
+          "stock": 59,
+          "tags": [
+            "beauty",
+            "face powder"
+          ],
+          "brand": "Fashion Shades",
+          "sku": "9EN8WLT2",
+          "weight": 8,
+          "dimensions": {
+            "width": 24.16,
+            "height": 10.7,
+            "depth": 11.07
+          },
+          "warrantyInformation": "2 year warranty",
+          "shippingInformation": "Ships in 1-2 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Ethan Thompson",
+              "reviewerEmail": "ethan.thompson@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great value for money!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Levi Hicks",
+              "reviewerEmail": "levi.hicks@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Hazel Gardner",
+              "reviewerEmail": "hazel.gardner@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "60 days return policy",
+          "minimumOrderQuantity": 25,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "0516267971277",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png",
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+          "imgae2": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+          "imaga3": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+          "ca": "smartphones",
+          "quantity": 1,
+          "user": "4f2c"
+        }
+      ],
+      "totalItems": 1,
+      "subTotal": 14.99
     }
   ]
 }

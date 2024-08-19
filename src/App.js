@@ -21,6 +21,7 @@ import ForgotPassword from './pages/ForgotPassword';
  import AdminProductDetails from './pages/AdminProductDetails' ; 
 import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
 import ProductForm from './features/admin/component/ProductForm';
+import ProductOrders from './features/admin/component/ProductOrders';
 
 function App() {
     const user = useSelector( selectLoggedInUser) ; 
@@ -34,7 +35,7 @@ useEffect( () =>{
 
   const appRouter = createBrowserRouter([
     {
-      path : '/login',
+      path : '/auth/login',
       element: <LoginPage/>
     },
     {
@@ -83,6 +84,11 @@ useEffect( () =>{
     {
       path :'/admin/product-form' ,  
       element :<ProtectedAdmin>  <ProductForm/> </ProtectedAdmin> 
+    }
+    ,
+    {
+      path :'/admin/orders' ,   
+      element :   <ProductOrders/>  
     }
     ,
     {

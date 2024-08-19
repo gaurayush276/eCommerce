@@ -13389,3 +13389,13 @@ console.log(obj1) ;
    
 
   
+{arr.map((item, index) => (
+            <tr key={index}>
+              <th>{index + 1}</th>
+              <th>{item.title}</th>
+              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.price}</td>
+              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.availabilityStatus}</td>
+              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.quantity}</td>
+              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.shippingInformation}</td>
+            </tr>
+          ))}

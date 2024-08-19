@@ -72,7 +72,7 @@ setConfirmPassword( false ) ;
               //  role is added here to set the admin and user distingution for admin page to add products  
               createUserAsync({email:data.email , password : data.password , adddresses : [] ,role : 'user' })))
              checkValidData( data.email , data.password , data.confirmPassword ) ; 
-           } )} method="POST" className="space-y-6">
+           }  )} method="POST" className="space-y-6">
                <div>
              {
                  toggle && (
