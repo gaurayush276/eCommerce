@@ -45,8 +45,15 @@ export function checkUser (loginInfo) {
               body: JSON.stringify(loginInfo) ,
               headers :{ 'content-type' : 'application/json'}
           } ) ; 
-        const data = await response.json() ;
-        resolve({data})  ;
+
+          if ( response.ok ) {
+              const data = await response.json() ;
+              resolve({data})  ;
+          }
+          else{
+            const err = await response.json() ; 
+            reject({err})  ;
+          }
         // console.log( data[0].password) ; 
         // if ( data.length ){
         //     if ( data[0].password === password ){

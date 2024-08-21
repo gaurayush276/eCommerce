@@ -33,11 +33,11 @@ const UserProfile = () => {
     <div>
       <Navbar/>
       <div className='p-4 flex w-full justify-between items-center border-b-2 '> 
-        <h1 className='  lg:text-6xl sm:text-2xl font-semibold text-gray-800  m-3'> {user.addresses[0].name} </h1>
+        <h1 className='  lg:text-6xl sm:text-2xl font-semibold text-gray-800  m-3'> {user?.addresses[0]?.name} </h1>
         <div className='flex-col gap-4'> 
           <p className='sm:text-base text-[0.5rem] text font-semibold text-gray-800'> Contact :  9336394123</p>
-          <p className='sm:text-base  text-[0.5rem] font-semibold text-gray-800'> Gmail :  {user.email }</p>
-          <p className='sm:text-base  text-[0.5rem] font-semibold text-green-500'> Role :  {user.role }</p>
+          <p className='sm:text-base  text-[0.5rem] font-semibold text-gray-800'> Gmail :  {user?.email }</p>
+          <p className='sm:text-base  text-[0.5rem] font-semibold text-green-500'> Role :  {user?.role }</p>
         </div>
       </div>
       <div className="border-b border-gray-900/10 p-5 ">
@@ -47,7 +47,7 @@ const UserProfile = () => {
       </div>
                    
                   <ul role="list">
-                    {user.addresses.map((address, index) => (
+                    {user?.addresses?.map((address, index) => (
                       <li
                         key={index}
                         className="m-2 rounded  sm:flex  sm:justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"

@@ -4,7 +4,7 @@ import { checkUser, createUser ,signOut,updateUser} from './authApi';
 const initialState = {
   loggedInUser: null,
   status: 'idle',
-  error:null
+  error : null
 };
 
 export const updateUserAsync = createAsyncThunk(

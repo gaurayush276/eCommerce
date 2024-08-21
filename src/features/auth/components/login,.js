@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux' ;
 import { checkUserAsync, createUserAsync, selectError, selectLoggedInUser } from '../authSlice';
 import { Navigate, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+
 const Login = () => {
   const dispatch = useDispatch() ; 
   const { register, handleSubmit , watch , formState : {errors}} = useForm();
@@ -45,6 +46,8 @@ if ( value === password )
 else 
 setConfirmPassword( false ) ; 
   }
+
+  console.log("the error is" , selectError ) ; 
 
   
    
@@ -135,7 +138,7 @@ setConfirmPassword( false ) ;
                    <div>
                     
                      <div className="flex items-center justify-between">
-                       <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                       <label htmlFor="text" className="block text-sm font-medium leading-6 text-gray-900">
                         Confirm Password
                        </label>
                         
